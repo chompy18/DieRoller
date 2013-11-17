@@ -2,10 +2,19 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+/*angular.module('dieRoller.controllers', ['RollDiceService']).
+  controller('MainCtrl', [function($scope, RollDiceService) {
+	$scope.queryString = "";
+	$scope.rollerModel = {};
+	$scope.doRoll = function() {
+		$scope.rollerModel = RollDiceService.evaluate($scope.queryString);
+	}
+  }]);*/
 
-  }])
-  .controller('MyCtrl2', [function() {
-
-  }]);
+function MainCtrl($scope, RollDiceService) {
+	$scope.queryString = "";
+	$scope.rollerModel = {};
+	$scope.doRoll = function() {
+		$scope.rollerModel = RollDiceService.evaluate($scope.queryString);
+	}
+}
