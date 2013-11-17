@@ -16,7 +16,7 @@ angular.module('myApp.services', {
 
 	var service = {
 		evaluate: function(input) {
-			rollerModel = new rollerModel();
+			rollerModel = new RollerModel();
 			evaluate(input);
 			return rollerModel;
 		}

@@ -2,19 +2,11 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', ['RollDiceService']).
-  controller('MainCtrl', [function($scope, RollDiceService) {
+angular.module('myApp.controllers', []).
+  controller('MainCtrl', ['$scope','RollDiceService', function($scope, RollDiceService) {
 	$scope.queryString = "";
 	$scope.rollerModel = {};
 	$scope.doRoll = function() {
 		$scope.rollerModel = RollDiceService.evaluate($scope.queryString);
 	}
   }]);
-
-/*function MainCtrl($scope, RollDiceService) {
-	$scope.queryString = "";
-	$scope.rollerModel = {};
-	$scope.doRoll = function() {
-		$scope.rollerModel = RollDiceService.evaluate($scope.queryString);
-	}
-}*/
