@@ -16,6 +16,7 @@ angular.module('myApp.controllers', []).
 				$scope.rolls = rollerModel.rolls;
 				$scope.resRolls = rollerModel.resRolls;
 				$scope.$apply();
+				$('#rollInput').focus();
 			}
 			$scope.getPresets = function() {
 				var presets = [];
