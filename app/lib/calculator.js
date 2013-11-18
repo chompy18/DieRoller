@@ -6,6 +6,7 @@ function RollerModel() {
     this.resRolls = [];
     this.rolls = [];
     this.rollStats = {};
+    this.grandTotal = 0;
 }
 
 RollerModel.prototype.addRollSeries = function(dice, series) {
@@ -118,7 +119,8 @@ function handleOperator(operator, lStr, rStr, argObj) {
             break;
          
     }
-     
+    
+    rollerModel.grandTotal = val; 
     return val;
 }
  

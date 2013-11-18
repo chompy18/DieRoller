@@ -11,13 +11,17 @@ angular.module('myApp.controllers', []).
 			$scope.rolls = [];
 			$scope.resRolls = [];
 			$scope.inputFocus = true;
+			$scope.grandTotal = 0;
+
 			$scope.doRoll = function() {
 				rollerModel = RollDiceService.evaluate($scope.queryString);
 				$scope.rolls = rollerModel.rolls;
 				$scope.resRolls = rollerModel.resRolls;
+				$scope.grandTotal = rollerModel.grandTotal;
 				$scope.$apply();
 				$('#rollInput').focus();
 			}
+
 			$scope.getPresets = function() {
 				var presets = [];
 				var preset;
@@ -32,6 +36,7 @@ angular.module('myApp.controllers', []).
 
 				return presets;
 			}
+
 			$scope.handlePreset = function() {
 				$scope.queryString = this.preset;
 				$scope.doRoll();

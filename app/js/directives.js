@@ -22,4 +22,30 @@ angular.module('myApp.directives', []).
         });
     };
   })
+  .directive('results', function(){
+  	// Runs during compile
+	return {
+		scope: {
+			rolls: "=data"
+		},
+		restrict: 'E',
+		replace: true,
+		transclude: true,
+		templateUrl:"partials/components/results.html"
+	};
+
+  })
+  .directive('totals', function(){
+  	// Runs during compile
+	return {
+		// scope: {
+		// 	totals: "=data"
+		// },
+		restrict: 'E',
+		replace: true,
+		transclude: true,
+		templateUrl:"partials/components/totals.html"
+	};
+
+  })
 ;
