@@ -1,0 +1,20 @@
+<div class="presets">
+	<button class="presetBtn" 
+			ng-repeat="preset in getPresets() track by $index" 
+			ng-class-odd="'presetOdd'" 
+			ng-class-even="'presetEven'"
+			ng-click="handlePreset()"
+			ng-hide="editMode">
+		{{preset}}
+	</button>
+
+	<input 	class="presetInput"
+			ng-repeat="preset in getPresets() track by $index"
+			ng-class-odd="'presetOdd'" 
+			ng-class-even="'presetEven'"
+			ng-show="editMode"
+			ng-model="preset"
+			onClick="this.select();"
+			ng-blur="savePreset(preset, $index)">
+
+</div>

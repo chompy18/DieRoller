@@ -4,20 +4,16 @@
 			placeholder="Enter roll here..." 
 			ng-enter="doRoll()" autofocus>
 
-	<button ng-click="doRoll()">Roll!</button><br>
+	<button ng-click="doRoll()">Roll!</button>
+	Edit mode: 
+	<input 	type="checkbox"
+			ng-model="editMode">
+	<br>
 
 	<results data="rolls"/>
 
 	<totals data="resRolls"/>
 
-	<div class="presets">
-		<button class="preset" 
-				ng-repeat="preset in getPresets()" 
-				ng-class-odd="'presetOdd'" 
-				ng-class-even="'presetEven'"
-				ng-click="handlePreset()">
-			{{preset}}
-		</button>
-	</div>
+	<presets/>
 		
 </div>

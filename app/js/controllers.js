@@ -12,6 +12,7 @@ angular.module('myApp.controllers', []).
 			$scope.resRolls = [];
 			$scope.inputFocus = true;
 			$scope.grandTotal = 0;
+			$scope.editMode = false;
 
 			$scope.doRoll = function() {
 				rollerModel = RollDiceService.evaluate($scope.queryString);
@@ -40,6 +41,10 @@ angular.module('myApp.controllers', []).
 			$scope.handlePreset = function() {
 				$scope.queryString = this.preset;
 				$scope.doRoll();
+			}
+
+			$scope.savePreset = function(item, index) {
+				localStorage.setItem('preset'+index, item);
 			}
 		}
 	]);
