@@ -1,5 +1,48 @@
 /* app css stylesheet */
 
+h2 {
+  margin-top: 0px;
+}
+
+.results {
+  position: relative;
+  margin-left: 30px;
+  width: 10em;
+  min-width: 100px;
+  float: left;
+  max-height: 500px;
+  overflow: auto;
+  top: 20px;
+}
+
+.totals {
+  position: relative;
+  margin-left: 20px;
+  width: 30%;
+  min-width: 200px;
+  float: left;
+  top: 20px;
+}
+
+.presets {
+  position: relative;
+  width: 110px;
+  height: 300px;
+  float: left;  
+}
+
+.preset {
+  margin-bottom: 5px;
+}
+
+.presetOdd {
+  margin-right: 5px;
+}
+
+.presetEven {
+  margin-left: 5px;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

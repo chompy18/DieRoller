@@ -1,17 +1,30 @@
 <div>
-	<input ng-model="queryString" placeholder="Enter roll here...">
-	<button ng-click="doRoll()" >Roll!</button><br>
+	<input 	ng-model="queryString" 
+			placeholder="Enter roll here..." 
+			ng-enter="doRoll()" autofocus>
 
-	<div>
+	<button ng-click="doRoll()">Roll!</button><br>
+
+	<div class="results">
 		<h2>Results</h2>
 		<ul >
 			<li ng-repeat="roll in rolls track by $index">{{roll}}</li>
 		</ul>
 	</div>
 
-	<div>
+	<div class="totals">
 		<h2>Totals</h2>
 		<h3 ng-repeat="total in resRolls track by $index">{{total}}</h3>
+	</div>
+
+	<div class="presets">
+		<button class="preset" 
+				ng-repeat="preset in getPresets()" 
+				ng-class-odd="'presetOdd'" 
+				ng-class-even="'presetEven'"
+				ng-click="handlePreset()">
+			{{preset}}
+		</button>
 	</div>
 		
 </div>
