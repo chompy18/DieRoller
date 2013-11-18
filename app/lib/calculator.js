@@ -3,15 +3,9 @@ var operatorSet = "+-*/^+-d";
 var rollerModel = new RollerModel();
 
 function RollerModel() {
-    this.resRolls = "";
-    this.rolls = "";
+    this.resRolls = [];
+    this.rolls = [];
     this.rollStats = {};
-}
-
-RollerModel.prototype.reset = function() {
-    this.resRolls = "";
-    this.rolls = "";
-    this.rollStats = {};    
 }
 
 RollerModel.prototype.addRollSeries = function(dice, series) {
@@ -92,27 +86,27 @@ function handleOperator(operator, lStr, rStr, argObj) {
     switch(operator) {
         case "+":
             val = num1+num2;
-            rollerModel.resRolls += num1 + " + " + num2 + " = " + val + ".\n";
+            rollerModel.resRolls.push(num1 + " + " + num2 + " = " + val);
             break;
          
         case "-":
             val =  num1-num2;
-            rollerModel.resRolls += num1 + " - " + num2 + " = " + val + ".\n";
+            rollerModel.resRolls.push(num1 + " - " + num2 + " = " + val);
             break;
          
         case "*":
             val =  num1*num2;
-            rollerModel.resRolls += num1 + " * " + num2 + " = " + val + ".\n";
+            rollerModel.resRolls.push(num1 + " * " + num2 + " = " + val);
             break;
          
         case "/":
             val =  num1/num2;
-            rollerModel.resRolls += num1 + " / " + num2 + " = " + val + ".\n";
+            rollerModel.resRolls.push(num1 + " / " + num2 + " = " + val);
             break;
          
         case "^":
             val = Math.pow(num1, num2);
-            rollerModel.resRolls += num1 + " ^ " + num2 + " = " + val + ".\n";
+            rollerModel.resRolls.push(num1 + " ^ " + num2 + " = " + val);
             break;
          
         case "d":
@@ -197,7 +191,7 @@ function rollDice(numOfRolls, dieSides) {
 
     for (var i = 0; i < numOfRolls; i++) {
         roll = rollDie(dieSides);
-        rollerModel.rolls += "d" + dieSides + " rolled " + roll + ".\n";
+        rollerModel.rolls.push("d" + dieSides + " rolled " + roll);
 /*        if (roll >= Consts.SUCCESS_THRESHOLD) {
             RollerModel.getInstance().successes++;
         } else if (roll <= Consts.FAILURE_THRESHOLD) {
@@ -209,7 +203,7 @@ function rollDice(numOfRolls, dieSides) {
     }
      
     rollerModel.addRollSeries(dieSides, rolls);
-    rollerModel.resRolls += "Total d" + dieSides + " rolled = " + totalRollsResult + ".\n";
+    rollerModel.resRolls.push("Total d" + dieSides + " rolled = " + totalRollsResult);
     return totalRollsResult;
 }
  

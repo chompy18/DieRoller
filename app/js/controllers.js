@@ -5,8 +5,13 @@
 angular.module('myApp.controllers', []).
   controller('MainCtrl', ['$scope','RollDiceService', function($scope, RollDiceService) {
 	$scope.queryString = "";
-	$scope.rollerModel = {};
+	$scope.rolls = [];
+	$scope.resRolls = [];
 	$scope.doRoll = function() {
-		$scope.rollerModel = RollDiceService.evaluate($scope.queryString);
+		rollerModel = RollDiceService.evaluate($scope.queryString);
+		$scope.rolls = rollerModel.rolls;
+		$scope.resRolls = rollerModel.resRolls;
+		$scope.$apply();
 	}
+
   }]);

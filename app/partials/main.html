@@ -1,7 +1,17 @@
 <div>
 	<input ng-model="queryString" placeholder="Enter roll here...">
-	<button ng-click="doRoll()" >Roll!</button>
-	<span>{{ rollerModel.rolls }}</span>
-	<span>{{ rollerModel.resRolls }}</span>
+	<button ng-click="doRoll()" >Roll!</button><br>
+
+	<div>
+		<h2>Results</h2>
+		<ul >
+			<li ng-repeat="roll in rolls track by $index">{{roll}}</li>
+		</ul>
+	</div>
+
+	<div>
+		<h2>Totals</h2>
+		<h3 ng-repeat="total in resRolls track by $index">{{total}}</h3>
+	</div>
 		
 </div>
