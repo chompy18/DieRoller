@@ -22,8 +22,10 @@ angular.module('myApp.controllers', []).
 
 				for (var i = 0; i < $scope.repeat; i++) {
 					RollDiceService.evaluate($scope.queryString);
-					rollerModel.rolls.push("------------------\n");
-                    rollerModel.resRolls.push("------------------\n");
+					if (i+1 !== Number($scope.repeat)) {
+						rollerModel.rolls.push("------------------\n");
+                    	rollerModel.resRolls.push("------------------\n");
+                	}
                     $scope.grandTotal += rollerModel.grandTotal;
 				}
 				$scope.rolls = rollerModel.rolls;
