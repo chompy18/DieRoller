@@ -4,6 +4,14 @@ h2 {
   margin-top: 0px;
 }
 
+.rollInput {
+
+}
+
+.repeatInput {
+  width: 25px;
+}
+
 .resultsContainer {
   position: relative;
   margin-left: 30px;

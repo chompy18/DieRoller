@@ -6,36 +6,35 @@ angular.module('myApp.controllers', []).
 	controller('MainCtrl', [
 	  	'$scope',
 	  	'RollDiceService', 
-	  	function($scope, RollDiceService) {
+	  	'PresetsService',
+	  	function($scope, RollDiceService, PresetsService) {
 			$scope.queryString = "";
 			$scope.rolls = [];
 			$scope.resRolls = [];
 			$scope.inputFocus = true;
 			$scope.grandTotal = 0;
 			$scope.editMode = false;
+			$scope.repeat = 1;
 
 			$scope.doRoll = function() {
-				rollerModel = RollDiceService.evaluate($scope.queryString);
+				rollerModel = new RollerModel();
+				$scope.grandTotal = 0;
+
+				for (var i = 0; i < $scope.repeat; i++) {
+					RollDiceService.evaluate($scope.queryString);
+					rollerModel.rolls.push("------------------\n");
+                    rollerModel.resRolls.push("------------------\n");
+                    $scope.grandTotal += rollerModel.grandTotal;
+				}
 				$scope.rolls = rollerModel.rolls;
 				$scope.resRolls = rollerModel.resRolls;
-				$scope.grandTotal = rollerModel.grandTotal;
+				// $scope.grandTotal = rollerModel.grandTotal;
 				$scope.$apply();
 				$('#rollInput').focus();
 			}
 
 			$scope.getPresets = function() {
-				var presets = [];
-				var preset;
-
-				for (var i = 0; i < 20; i++) {
-					preset = localStorage.getItem('preset'+i);
-					if (preset === null) {
-						preset = (i+1)+"d6";
-					}
-					presets.push(preset);
-				}
-
-				return presets;
+				return PresetsService.getPresets();
 			}
 
 			$scope.handlePreset = function() {
@@ -44,7 +43,7 @@ angular.module('myApp.controllers', []).
 			}
 
 			$scope.savePreset = function(item, index) {
-				localStorage.setItem('preset'+index, item);
+				PresetsService.savePreset(item, index);
 			}
 		}
 	]);

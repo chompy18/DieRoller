@@ -1,8 +1,13 @@
 <div>
-	<input 	id="rollInput" 
+	<input 	id="rollInput" class="rollInput" 
 			ng-model="queryString" 
 			placeholder="Enter roll here..." 
 			ng-enter="doRoll()" autofocus>
+
+	<input  id="repeat" class="repeatInput" 
+			ng-model="repeat"
+			placeholder="1"
+			ng-enter="doRoll()">
 
 	<button ng-click="doRoll()">Roll!</button>
 	Edit mode: 
