@@ -15,11 +15,13 @@ angular.module('myApp.controllers', []).
 			$scope.grandTotal = 0;
 			$scope.editMode = false;
 			$scope.repeat = 1;
+			$scope.progress = 0;
 
 
 			$scope.doRoll = function() {
 				rollerModel = new RollerModel();
 				$scope.grandTotal = 0;
+				$scope.progress = 0;	
 
 				for (var i = 0; i < $scope.repeat; i++) {
 					RollDiceService.evaluate($scope.queryString);
@@ -28,6 +30,7 @@ angular.module('myApp.controllers', []).
                     	rollerModel.resRolls.push("------------------\n");
                 	}
                     $scope.grandTotal += rollerModel.grandTotal;
+                    $scope.progress = 100 / (i * repeat);
 				}
 				$scope.rolls = rollerModel.rolls;
 				$scope.resRolls = rollerModel.resRolls;

@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row" style="margin:25px;">
 			<div class="col-xs-12 col-sm-12 col-md-7 text-left form-group">
-				<form role="form" class="form-inline">
+				<form role="form" name="form" class="form-inline" novalidate>
 						<div class="col-md-7 form-group">
 							<label  for="rollInput">Roll expression</label>
 							<input 	id="rollInput" placeholder="Enter roll here..." 
@@ -13,11 +13,13 @@
 
 						<div class="col-md-3 form-group">
 							<label  for="repeat">Roll repeat</label>
-							<input  id="repeat" placeholder="1"
-									type="number" min="1" value="1" 
+							<input  id="repeat" name="repeat" 
+									type="text" smart-float
 									class="form-control"
 									ng-model="repeat"
-									ng-enter="doRoll()">
+									ng-enter="doRoll()">	
+							<span 	class="label label-danger"
+									ng-show="form.repeat.$error.float">Repeat invalid!</span>
 						</div>
 
 						<div class="col-md-2 form-group" style="margin-top:25px;">
