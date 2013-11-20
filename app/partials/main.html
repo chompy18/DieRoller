@@ -1,31 +1,35 @@
 <div>
-	<div class="text-left form-group" style="margin:25px;">
-		<form role="form" class="form-inline">
-			<p>
-				<div class="form-group">
-					<label  for="rollInput">Roll expression</label>
-					<input 	id="rollInput" placeholder="Enter roll here..." 
-							class="form-control"
-							ng-model="queryString" 
-							ng-enter="doRoll()" autofocus>
-				</div>
-
-				<div class="form-group">
-					<label  for="repeat">Roll repeat</label>
-					<input  id="repeat" placeholder="1"
-							class="form-control"
-							ng-model="repeat"
-							ng-enter="doRoll()">
-				</div>
-				<button type="submit" class="btn btn-default" style="vertical-align:bottom;" 
-						ng-click="doRoll()">Roll!</button>
-				
-			</p>
-		 </form>
-		
-	</div>
-
 	<div class="container">
+		<div class="row" style="margin:25px;">
+			<div class="col-xs-12 col-sm-12 col-md-7 text-left form-group">
+				<form role="form" class="form-inline">
+						<div class="col-md-7 form-group">
+							<label  for="rollInput">Roll expression</label>
+							<input 	id="rollInput" placeholder="Enter roll here..." 
+									class="form-control"
+									ng-model="queryString" 
+									ng-enter="doRoll()" autofocus>
+						</div>
+
+						<div class="col-md-3 form-group">
+							<label  for="repeat">Roll repeat</label>
+							<input  id="repeat" placeholder="1"
+									type="number" min="1" value="1" 
+									class="form-control"
+									ng-model="repeat"
+									ng-enter="doRoll()">
+						</div>
+
+						<div class="col-md-2 form-group" style="margin-top:25px;">
+							<button type="button" class="btn btn-primary form-control"  
+									ng-click="doRoll()">Roll!</button>
+							
+						</div>
+						
+				 </form>
+				
+			</div>
+		</div>
 		<div class="row">
 			<results data="rolls"/>
 			<totals data="resRolls"/>

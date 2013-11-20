@@ -11,7 +11,7 @@ angular.module('myApp.directives', []).
   }])
   .directive('ngEnter', function () {
     return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
+        element.bind('keydown keypress', function (event) {
             if(event.which === 13) {
                 scope.$apply(function (){
                     scope.$eval(attrs.ngEnter);
@@ -26,25 +26,25 @@ angular.module('myApp.directives', []).
   	// Runs during compile
 	return {
 		scope: {
-			rolls: "=data"
+			rolls: '=data'
 		},
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		templateUrl:"partials/components/results.html"
+		templateUrl:'partials/components/results.html'
 	};
 
   })
   .directive('totals', function(){
   	// Runs during compile
 	return {
-		// scope: {
-		// 	totals: "=data"
-		// },
+		scope: {
+			totals: "=data"
+		},
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		templateUrl:"partials/components/totals.html"
+		templateUrl:'partials/components/totals.html'
 	};
 
   })
@@ -57,7 +57,7 @@ angular.module('myApp.directives', []).
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		templateUrl:"partials/components/presets.html"
+		templateUrl:'partials/components/presets.html'
 	};
 
   })

@@ -1,7 +1,7 @@
-<div class="col-md-4 form-group">
+<div class="col-xs-12 col-sm-6 col-md-4 form-group">
 	<form role="form" class="form-inline">
 		
-		<button type="submit" class="btn btn-default presetItem" 
+		<button type="button" class="btn btn-info presetItem" 
 				ng-repeat="preset in getPresets() track by $index" 
 				ng-class-odd="'presetOdd'" 
 				ng-class-even="'presetEven'"
@@ -22,12 +22,12 @@
 
 	</form>
 
-
 	<div class="checkbox">
-		<label>
+		<label class="{{editMode && ' label label-success' || ''}}">
 			<input 	type="checkbox"
 					ng-model="editMode">
-			Edit mode
+			<span ng-show="editMode">Apply presets</span>
+			<span ng-hide="editMode">Edit presets</span>
 		</label>
 	</div>
 
