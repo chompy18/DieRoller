@@ -11,15 +11,17 @@
 									ng-enter="doRoll()" autofocus>
 						</div>
 
-						<div class="col-md-3 form-group">
-							<label  for="repeat">Roll repeat</label>
+						<div class="{{form.repeat.$error.float && 
+									  'col-md-3 form-group has-error' || 
+									  'col-md-3 form-group'}}">
+
+							<label  class="control-label" for="repeat">Roll repeat</label>
 							<input  id="repeat" name="repeat" 
 									type="text" smart-float
+									title="{{form.repeat.$error.float && 'Numbers only, no fractions' || ''}}" 
 									class="form-control"
 									ng-model="repeat"
 									ng-enter="doRoll()">	
-							<span 	class="label label-danger"
-									ng-show="form.repeat.$error.float">Repeat invalid!</span>
 						</div>
 
 						<div class="col-md-2 form-group" style="margin-top:25px;">

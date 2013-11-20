@@ -72,7 +72,7 @@ angular.module('myApp.directives', []).
 	          return parseInt(viewValue);
 	        } else {
 	          ctrl.$setValidity('float', false);
-	          return undefined;
+	          return 1;
 	        }
 	     });
 	    }
