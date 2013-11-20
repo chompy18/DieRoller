@@ -16,6 +16,7 @@ angular.module('myApp.controllers', []).
 			$scope.editMode = false;
 			$scope.repeat = 1;
 
+
 			$scope.doRoll = function() {
 				rollerModel = new RollerModel();
 				$scope.grandTotal = 0;
@@ -30,8 +31,7 @@ angular.module('myApp.controllers', []).
 				}
 				$scope.rolls = rollerModel.rolls;
 				$scope.resRolls = rollerModel.resRolls;
-				// $scope.grandTotal = rollerModel.grandTotal;
-				$scope.$apply();
+
 				$('#rollInput').focus();
 			}
 

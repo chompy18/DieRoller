@@ -1,7 +1,7 @@
 /* app css stylesheet */
 
-h2 {
-  margin-top: 0px;
+h3 {
+  margin-top: 0px !important;
 }
 
 .rollInput {
@@ -14,16 +14,15 @@ h2 {
 
 .resultsContainer {
   position: relative;
-  margin-left: 30px;
+  margin-left: 50px;
   width: 10em;
   min-width: 100px;
   float: left;
-  top: 20px;
 }
 
 .scrollable {
   overflow: auto;
-  max-height: 500px;
+  max-height: 400px;
 }
 
 .totals {
@@ -32,29 +31,20 @@ h2 {
   width: 25%;
   min-width: 200px;
   float: left;
-  top: 20px;
 }
 
 .presets {
   position: relative;
-  width: 190px;
-  height: 480px;
-  float: left;
+  width: 310px;
+  height: 500px;
+  float: right;
   top: 60px;
-  margin-left: 50px; 
+  margin-right: 50px; 
 }
 
-.presetBtn {
-  margin-bottom: 8px;
-  width: 85px;
-  height: 25px;
-}
-
-.presetInput {
-  margin-bottom: 8px;
-  width: 85px;
-  height: 20px;
-  text-align: center;
+.presetItem {
+  width: 150px !important;
+  margin-bottom: 10px !important;
 }
 
 .presetOdd {
